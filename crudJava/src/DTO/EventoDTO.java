@@ -14,7 +14,8 @@ public class EventoDTO {
 
     private String nomeEvento;
     private String tipoEvento;
-    private Date diaEvento;
+    private Integer diaEvento;
+    private Integer mesEvento;
 
     /**
      * @return the nomeEvento
@@ -47,15 +48,31 @@ public class EventoDTO {
     /**
      * @return the diaEvento
      */
-    public Date getDiaEvento() {
+    public Integer getDiaEvento() {
         return diaEvento;
     }
 
     /**
      * @param diaEvento the diaEvento to set
      */
-    public void setDiaEvento(Date diaEvento) {
+    public void setDiaEvento(Integer diaEvento) {
         this.diaEvento = diaEvento;
     }
+
+    /**
+     * @return the mesEvento
+     */
+    public Integer getMesEvento() {
+        return mesEvento;
+    }
+
+    /**
+     * @param mesEvento the mesEvento to set
+     */
+    public void setMesEvento(Integer mesEvento) {
+        this.mesEvento = mesEvento;
+    }
+
+  
 
 }

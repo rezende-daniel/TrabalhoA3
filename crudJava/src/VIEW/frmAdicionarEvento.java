@@ -4,6 +4,9 @@
  */
 package VIEW;
 
+import DAO.EventoDAO;
+import DTO.EventoDTO;
+
 /**
  *
  * @author rezen
@@ -136,7 +139,22 @@ public class frmAdicionarEvento extends javax.swing.JFrame {
     private void BtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarActionPerformed
         String nomeEvento,tipoEvento;
         Integer diaEvento,mesEvento;
-        nomeEvento=txtNomeEvento.
+        nomeEvento=txtNomeEvento.getText();
+        tipoEvento= txtTipoEvento.getText();
+        diaEvento= Integer.valueOf(txtDiaEvento.getText());
+        mesEvento= Integer.valueOf(txtMesEvento.getText());
+        
+        EventoDTO objEventoDTO = new EventoDTO();
+        objEventoDTO.setNomeEvento(nomeEvento);
+        objEventoDTO.setTipoEvento(tipoEvento);
+        objEventoDTO.setDiaEvento(diaEvento);
+        objEventoDTO.setMesEvento(mesEvento);
+        
+        EventoDAO objEventoDAO = new EventoDAO();
+        objEventoDAO.cadastrarEvento(objEventoDTO);
+        
+        
+        
     }//GEN-LAST:event_BtnCadastrarActionPerformed
 
     /**

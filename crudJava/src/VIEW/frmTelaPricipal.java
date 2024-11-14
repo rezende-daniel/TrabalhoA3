@@ -4,6 +4,12 @@
  */
 package VIEW;
 
+import DAO.EventoDAO;
+import DTO.EventoDTO;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author rezen
@@ -15,6 +21,7 @@ public class frmTelaPricipal extends javax.swing.JFrame {
      */
     public frmTelaPricipal() {
         initComponents();
+        ListarEventos();
     }
 
     /**
@@ -37,9 +44,10 @@ public class frmTelaPricipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         list1 = new java.awt.List();
         list2 = new java.awt.List();
-        list3 = new java.awt.List();
         jLabel2 = new javax.swing.JLabel();
         list4 = new java.awt.List();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaEventos = new javax.swing.JTable();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -97,6 +105,19 @@ public class frmTelaPricipal extends javax.swing.JFrame {
 
         jLabel2.setText("Lista de eventos:");
 
+        TabelaEventos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelaEventos);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,14 +138,10 @@ public class frmTelaPricipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(list3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,8 +167,8 @@ public class frmTelaPricipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(list3, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,6 +210,7 @@ public class frmTelaPricipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TabelaEventos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -203,9 +221,32 @@ public class frmTelaPricipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JOptionPane jOptionPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     private java.awt.List list1;
     private java.awt.List list2;
-    private java.awt.List list3;
     private java.awt.List list4;
     // End of variables declaration//GEN-END:variables
+    private void ListarEventos() {
+        try {
+            EventoDAO objEventoDAO = new EventoDAO();
+            DefaultTableModel model = (DefaultTableModel) TabelaEventos.getModel();
+            model.setNumRows(0);
+
+            ArrayList<EventoDTO> lista = objEventoDAO.listarEvento();
+
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[]{
+                    //lista.get(num).getID(),
+                    lista.get(num).getDiaEvento(),
+                    lista.get(num).getMesEvento(),
+                    lista.get(num).getNomeEvento(),
+                    lista.get(num).getTipoEvento()
+                });
+            }
+
+        } catch (Exception erro) {
+            jOptionPane1.showMessageDialog(null, erro + "listarEventos View");
+        }
+    }
+
 }

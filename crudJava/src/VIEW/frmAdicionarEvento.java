@@ -18,6 +18,7 @@ public class frmAdicionarEvento extends javax.swing.JFrame {
      */
     public frmAdicionarEvento() {
         initComponents();
+        
     }
 
     /**
@@ -202,4 +203,6 @@ public class frmAdicionarEvento extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeEvento;
     private javax.swing.JTextField txtTipoEvento;
     // End of variables declaration//GEN-END:variables
+
+
 }

@@ -16,6 +16,7 @@ public class EventoDTO {
     private String tipoEvento;
     private Integer diaEvento;
     private Integer mesEvento;
+    private Integer ID;
 
     /**
      * @return the nomeEvento
@@ -73,6 +74,18 @@ public class EventoDTO {
         this.mesEvento = mesEvento;
     }
 
-  
+    /**
+     * @return the ID
+     */
+    public Integer getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
 
 }

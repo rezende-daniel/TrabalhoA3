@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,6 +9,7 @@ import DAO.EventoDAO;
 import DTO.EventoDTO;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -107,13 +109,14 @@ public class frmTelaPricipal extends javax.swing.JFrame {
 
         TabelaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         jScrollPane1.setViewportView(TabelaEventos);
@@ -236,16 +239,18 @@ public class frmTelaPricipal extends javax.swing.JFrame {
 
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
-                    //lista.get(num).getID(),
+                    lista.get(num).getID(),
+                    lista.get(num).getCliente(),
+                    lista.get(num).getNomeEvento(),
+                    lista.get(num).getLocalEvento(),
                     lista.get(num).getDiaEvento(),
                     lista.get(num).getMesEvento(),
-                    lista.get(num).getNomeEvento(),
-                    lista.get(num).getTipoEvento()
+                    
                 });
             }
 
         } catch (Exception erro) {
-            jOptionPane1.showMessageDialog(null, erro + "listarEventos View");
+            JOptionPane.showMessageDialog(null, erro + "listarEventos View");
         }
     }
 

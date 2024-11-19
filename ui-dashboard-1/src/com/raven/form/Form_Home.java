@@ -1,12 +1,17 @@
 package com.raven.form;
 
+import DAO.EventoDAO;
+import DTO.EventoDTO;
 import com.raven.model.Model_Card;
 import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Form_Home extends javax.swing.JPanel {
 
@@ -15,7 +20,7 @@ public class Form_Home extends javax.swing.JPanel {
         card1.setData(new Model_Card("25 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 1", "Tipo do evento", "Concluído em 60%"));
         card2.setData(new Model_Card("26 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 2", "Tipo do evento", "Concluído em 25%"));
         card3.setData(new Model_Card("27 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 3", "Tipo do evento", "Concluído em 70%"));
-
+        ListarEventos();
         //  add row table
         spTable.setVerticalScrollBar(new ScrollBar());
         spTable.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -23,20 +28,7 @@ public class Form_Home extends javax.swing.JPanel {
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PENDENTE});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PROXIMO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PENDENTE});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PROXIMO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PENDENTE});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PENDENTE});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.CONCLUIDO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PROXIMO});
-        table.addRow(new Object[]{"001", "Cliente1", "Festa1", "Local1", "Local1", StatusType.PENDENTE});
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +66,7 @@ public class Form_Home extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Clientes");
+        jLabel1.setText("Eventos");
 
         spTable.setBorder(null);
 
@@ -83,11 +75,11 @@ public class Form_Home extends javax.swing.JPanel {
 
             },
             new String [] {
-                "O.S", "Cliente", "Evento", "Local", "Data", "Status"
+                "O.S", "Cliente", "Evento", "Local", "Dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -171,4 +163,34 @@ public class Form_Home extends javax.swing.JPanel {
     private javax.swing.JScrollPane spTable;
     private com.raven.swing.Table table;
     // End of variables declaration//GEN-END:variables
+ private void ListarEventos() {
+        try {
+            EventoDAO objEventoDAO = new EventoDAO();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setNumRows(0);
+
+            ArrayList<EventoDTO> lista = objEventoDAO.listarEvento();
+
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[]{
+                    lista.get(num).getID(),
+                    lista.get(num).getCliente(),
+                    lista.get(num).getNomeEvento(),
+                    lista.get(num).getLocalEvento(),
+                    lista.get(num).getDiaEvento(),
+                    lista.get(num).getMesEvento(),
+                    
+                });
+            }
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro + "listarEventos View");
+        }
+    }
+ private void card1(){
+     EventoDAO objEventoDAO = new EventoDAO();
+     
+ }
+
+
 }

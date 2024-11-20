@@ -10,12 +10,13 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class SearchText extends JTextField {
+    private final String hint = "Pesquise aqui...";
 
     public SearchText() {
         setBorder(new EmptyBorder(5, 5, 5, 5));
         setSelectionColor(new Color(220, 204, 182));
     }
-    private final String hint = "Search here ...";
+
 
     @Override
     public void paint(Graphics g) {

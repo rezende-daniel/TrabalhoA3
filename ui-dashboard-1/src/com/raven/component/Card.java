@@ -37,7 +37,7 @@ public class Card extends javax.swing.JPanel {
 
     public void setData(Model_Card data) {
         lbDate.setText(data.getDate());
-        lbIcon.setIcon(data.getIcon());
+        //lbIcon.setIcon(data.getIcon());
         lbTitle.setText(data.getTitle());
         lbValues.setText(data.getValues());
         lbDescription.setText(data.getDescription());

@@ -1,9 +1,12 @@
 package com.raven.form;
 
+import DAO.CartaoDAO;
 import DAO.EventoDAO;
 import DTO.EventoDTO;
+import DTO.CartaoDTO;
+import com.raven.component.Card;
 import com.raven.model.Model_Card;
-import com.raven.model.StatusType;
+//import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -17,9 +20,9 @@ public class Form_Home extends javax.swing.JPanel {
 
     public Form_Home() {
         initComponents();
-        card1.setData(new Model_Card("25 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 1", "Tipo do evento", "Concluído em 60%"));
-        card2.setData(new Model_Card("26 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 2", "Tipo do evento", "Concluído em 25%"));
-        card3.setData(new Model_Card("27 nov 2025", new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Cliente 3", "Tipo do evento", "Concluído em 70%"));
+        Card1();
+        Card1();
+        Card1();
         ListarEventos();
         //  add row table
         spTable.setVerticalScrollBar(new ScrollBar());
@@ -28,7 +31,7 @@ public class Form_Home extends javax.swing.JPanel {
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
-       
+
     }
 
     @SuppressWarnings("unchecked")
@@ -168,29 +171,82 @@ public class Form_Home extends javax.swing.JPanel {
             EventoDAO objEventoDAO = new EventoDAO();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setNumRows(0);
-
+            
             ArrayList<EventoDTO> lista = objEventoDAO.listarEvento();
-
+            
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
+                    
                     lista.get(num).getID(),
                     lista.get(num).getCliente(),
                     lista.get(num).getNomeEvento(),
                     lista.get(num).getLocalEvento(),
                     lista.get(num).getDiaEvento(),
-                    lista.get(num).getMesEvento(),
-                    
-                });
+                    lista.get(num).getMesEvento(),});
             }
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro + "listarEventos View");
         }
     }
- private void card1(){
-     EventoDAO objEventoDAO = new EventoDAO();
-     
- }
 
+    private void Card1() {
+        try {
+            CartaoDAO objCartaoDAO = new CartaoDAO();
+            
+
+            ArrayList<CartaoDTO> lista = objCartaoDAO.card();
+
+                    
+                
+                    String tipoEvento = lista.get(0).getTipoEvento();
+                    String cliente = lista.get(0).getCliente();
+                    //String nomeEvento = lista.get(1).getNomeEvento();
+                    String localEvento = lista.get(0).getLocalEvento();
+                    String diaEvento =String.valueOf( lista.get(0).getDiaEvento());
+                    String notas =tipoEvento+cliente+localEvento+diaEvento;
+                  
+                   /*
+                    lista.get(0).getCliente();
+                    lista.get(0).getTipoEvento();
+                    lista.get(0).getLocalEvento();
+                    lista.get(0).getDiaEvento();
+                   */
+                   card1.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));
+                    tipoEvento = lista.get(1).getTipoEvento();
+                     cliente = lista.get(1).getCliente();
+                    //String nomeEvento = lista.get(1).getNomeEvento();
+                     localEvento = lista.get(1).getLocalEvento();
+                     diaEvento =String.valueOf( lista.get(1).getDiaEvento());
+                     notas =tipoEvento+cliente+localEvento+diaEvento;
+                  
+                   /*
+                    lista.get(0).getCliente();
+                    lista.get(0).getTipoEvento();
+                    lista.get(0).getLocalEvento();
+                    lista.get(0).getDiaEvento();
+                   */
+                   card2.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));tipoEvento = lista.get(1).getTipoEvento();
+                     cliente = lista.get(2).getCliente();
+                    //String nomeEvento = lista.get(1).getNomeEvento();
+                     localEvento = lista.get(2).getLocalEvento();
+                     diaEvento =String.valueOf( lista.get(2).getDiaEvento());
+                     notas =tipoEvento+cliente+localEvento+diaEvento;
+                  
+                   /*
+                    lista.get(0).getCliente();
+                    lista.get(0).getTipoEvento();
+                    lista.get(0).getLocalEvento();
+                    lista.get(0).getDiaEvento();
+                   */
+                   card3.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));
+                   
+                   
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro + " card1 View");
+        }
+
+    }
 
 }

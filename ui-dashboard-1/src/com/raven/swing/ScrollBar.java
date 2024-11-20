@@ -12,4 +12,5 @@ public class ScrollBar extends JScrollBar {
         setBackground(new Color(242, 242, 242));
         setUnitIncrement(20);
     }
+    
 }

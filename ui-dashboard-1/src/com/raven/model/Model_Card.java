@@ -15,13 +15,13 @@ public class Model_Card {
     private String date;
   
 
-    public Icon getIcon() {
-        return icon;
-    }
+    //public Icon getIcon() {
+      //  return icon;
+    //}
 
-    public void setIcon(Icon icon) {
-        this.icon = icon;
-    }
+   // public void setIcon(Icon icon) {
+    //    this.icon = icon;
+    //}
 
     public String getTitle() {
         return title;
@@ -47,9 +47,9 @@ public class Model_Card {
         this.description = description;
     }
 
-    public Model_Card(String date, Icon icon, String title, String values, String description) {
+    public Model_Card(String date, String title, String values, String description) {
         this.date = date;
-        this.icon = icon;
+        //this.icon = icon;
         this.title = title;
         this.values = values;
         this.description = description;

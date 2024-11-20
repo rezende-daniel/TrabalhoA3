@@ -20,6 +20,7 @@ public class EventoDAO {
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<EventoDTO> lista = new ArrayList<>();
+     
 
     public void cadastrarEvento(EventoDTO objEventoDTO) {
         String sql = "insert into evento (dia_evento,mes_evento,nome_evento,tipo_evento,cliente,local_evento) values (?,?,?,?,?,?)";
@@ -37,7 +38,7 @@ public class EventoDAO {
             pstm.execute();
             pstm.close();
 
-        } catch (Exception erro) {
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, erro + "eventoDAO cadastrar");
         }
     }
@@ -67,23 +68,8 @@ public class EventoDAO {
         }
         return lista;
     }
-   /* public ResultSet<EventoDTO> card(){
-        String sql="select cliente,tipo_evento,dia_evento from evento;";
-        
-        try {
-            pstm = conn.prepareCall(sql);
-            rs = pstm.executeQuery();
-            for (int i=0;i <4;i++){
-                EventoDTO objEventoDTO = new EventoDTO();
-                objEventoDTO.setID(rs.getInt("ID"));
-                objEventoDTO.setDiaEvento(rs.getInt("dia_evento"));
-                objEventoDTO.setCliente(rs.getString("cliente"));
-        }
-            
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, erro+"card");
-        }
-        
-    }
-*/
+    
+
 }
+
+

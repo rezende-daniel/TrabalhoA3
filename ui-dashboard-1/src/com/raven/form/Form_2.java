@@ -27,6 +27,12 @@ public class Form_2 extends javax.swing.JPanel {
         txtDescricao = new com.raven.component.Descricao();
         button1 = new com.raven.swing.ButtonAdd();
         buttonClean1 = new com.raven.swing.ButtonClean();
+<<<<<<< HEAD
+        data1 = new com.raven.component.Dia();
+        mes1 = new com.raven.component.Mes();
+        Orcamento1 = new javax.swing.JLabel();
+=======
+>>>>>>> upstream/main
 
         setBackground(new java.awt.Color(51, 51, 51));
         setForeground(new java.awt.Color(51, 51, 51));
@@ -54,6 +60,13 @@ public class Form_2 extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< HEAD
+        Orcamento1.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        Orcamento1.setForeground(new java.awt.Color(255, 255, 255));
+        Orcamento1.setText("Data do evento:");
+
+=======
+>>>>>>> upstream/main
         javax.swing.GroupLayout FundoLayout = new javax.swing.GroupLayout(Fundo);
         Fundo.setLayout(FundoLayout);
         FundoLayout.setHorizontalGroup(
@@ -61,6 +74,24 @@ public class Form_2 extends javax.swing.JPanel {
             .addGroup(FundoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                    .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Orcamento, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(FundoLayout.createSequentialGroup()
+                            .addComponent(Orcamento1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(mes1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtValorEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(FundoLayout.createSequentialGroup()
+                            .addComponent(searchText11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(oS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+=======
                     .addComponent(Orcamento)
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -68,20 +99,55 @@ public class Form_2 extends javax.swing.JPanel {
                             .addComponent(searchText11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtLocalEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+>>>>>>> upstream/main
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FundoLayout.createSequentialGroup()
                             .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(buttonClean1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
+                        .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                        .addComponent(txtLocalEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+=======
                         .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGroup(FundoLayout.createSequentialGroup()
                             .addComponent(txtValorEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(oS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+>>>>>>> upstream/main
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         FundoLayout.setVerticalGroup(
             FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FundoLayout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(22, 22, 22)
+                .addComponent(Orcamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(searchText11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FundoLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtValorEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(FundoLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(Orcamento1)))
+                .addGap(12, 12, 12)
+                .addComponent(txtLocalEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonClean1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+=======
                 .addGap(15, 15, 15)
                 .addComponent(Orcamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -102,6 +168,7 @@ public class Form_2 extends javax.swing.JPanel {
                     .addComponent(buttonClean1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
+>>>>>>> upstream/main
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -116,9 +183,15 @@ public class Form_2 extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addContainerGap()
+                .addComponent(Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
+=======
                 .addGap(40, 40, 40)
                 .addComponent(Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(209, Short.MAX_VALUE))
+>>>>>>> upstream/main
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,8 +236,16 @@ public class Form_2 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Back Fundo;
     private javax.swing.JLabel Orcamento;
+<<<<<<< HEAD
+    private javax.swing.JLabel Orcamento1;
     private com.raven.swing.ButtonAdd button1;
     private com.raven.swing.ButtonClean buttonClean1;
+    private com.raven.component.Dia data1;
+    private com.raven.component.Mes mes1;
+=======
+    private com.raven.swing.ButtonAdd button1;
+    private com.raven.swing.ButtonClean buttonClean1;
+>>>>>>> upstream/main
     private com.raven.component.OS oS1;
     private com.raven.component.Tipo searchText11;
     private com.raven.component.Descricao txtDescricao;

@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/nynav/OneDrive/Documentos/Faculdade/Site%20Buffet/TrabalhoA3-main/TrabalhoA3-main/ui-dashboard-1/src/com/raven/form/Form_1.java</file>
             <file>file:/C:/Users/nynav/OneDrive/Documentos/Faculdade/Site%20Buffet/TrabalhoA3-main/TrabalhoA3-main/ui-dashboard-1/src/com/raven/form/Form_Home.java</file>
             <file>file:/C:/Users/nynav/OneDrive/Documentos/Faculdade/Site%20Buffet/TrabalhoA3-main/TrabalhoA3-main/ui-dashboard-1/src/com/raven/component/Camp.java</file>
             <file>file:/C:/Users/nynav/OneDrive/Documentos/Faculdade/Site%20Buffet/TrabalhoA3-main/TrabalhoA3-main/ui-dashboard-1/src/com/raven/component/Header.java</file>
             <file>file:/C:/Users/nynav/OneDrive/Documentos/Faculdade/Site%20Buffet/TrabalhoA3-main/TrabalhoA3-main/ui-dashboard-1/src/com/raven/form/Form_3.java</file>
+=======
+            <file>file:/C:/Users/rezen/OneDrive/Documentos/NetBeansProjects/ui-dashboard-1/src/com/raven/scroll/ScrollBarWin11UI.java</file>
+            <file>file:/C:/Users/rezen/OneDrive/Documentos/NetBeansProjects/ui-dashboard-1/src/com/raven/form/Form_3.java</file>
+>>>>>>> upstream/main
         </group>
     </open-files>
 </project-private>

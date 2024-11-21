@@ -35,7 +35,14 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+<<<<<<< HEAD
     <Component class="com.raven.swing.DescEvento" name="searchText11111">
     </Component>
   </SubComponents>
 </Form>
+=======
+    <Component class="com.raven.swing.SearchText1111" name="searchText11111">
+    </Component>
+  </SubComponents>
+</Form>
+>>>>>>> upstream/main

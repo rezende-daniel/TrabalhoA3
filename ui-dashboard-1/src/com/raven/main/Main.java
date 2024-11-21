@@ -91,7 +91,13 @@ public class Main extends javax.swing.JFrame {
         panelBorder1 = new com.raven.swing.PanelBorder();
         menu = new com.raven.component.Menu();
         mainPanel = new javax.swing.JPanel();
+<<<<<<< HEAD
         X = new javax.swing.JLabel();
+=======
+        jLabel1 = new javax.swing.JLabel();
+        X = new javax.swing.JLabel();
+        person = new javax.swing.JLabel();
+>>>>>>> upstream/main
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -102,8 +108,20 @@ public class Main extends javax.swing.JFrame {
         mainPanel.setOpaque(false);
         mainPanel.setLayout(new java.awt.BorderLayout());
 
+<<<<<<< HEAD
         X.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/x.png"))); // NOI18N
 
+=======
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Home");
+
+        X.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/x.png"))); // NOI18N
+
+        person.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/Peson.png"))); // NOI18N
+        person.setText("jLabel2");
+
+>>>>>>> upstream/main
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
         panelBorder1Layout.setHorizontalGroup(
@@ -116,7 +134,15 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(panelBorder1Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addGap(18, 18, Short.MAX_VALUE)
+=======
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(person, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+>>>>>>> upstream/main
                         .addComponent(X)
                         .addGap(20, 20, 20))))
         );
@@ -124,9 +150,22 @@ public class Main extends javax.swing.JFrame {
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
             .addGroup(panelBorder1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(17, 17, 17)
                 .addComponent(X)
                 .addGap(0, 0, 0)
+=======
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(person)))
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(X)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> upstream/main
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -183,8 +222,16 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel X;
+<<<<<<< HEAD
     private javax.swing.JPanel mainPanel;
     private com.raven.component.Menu menu;
     private com.raven.swing.PanelBorder panelBorder1;
+=======
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel mainPanel;
+    private com.raven.component.Menu menu;
+    private com.raven.swing.PanelBorder panelBorder1;
+    private javax.swing.JLabel person;
+>>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
 }

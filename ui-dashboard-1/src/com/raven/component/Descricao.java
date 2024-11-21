@@ -22,7 +22,11 @@ public class Descricao extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         searchText11111 = new com.raven.swing.DescEvento();
+=======
+        searchText11111 = new com.raven.swing.SearchText1111();
+>>>>>>> upstream/main
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -55,6 +59,10 @@ public class Descricao extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private com.raven.swing.DescEvento searchText11111;
+=======
+    private com.raven.swing.SearchText1111 searchText11111;
+>>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
 }

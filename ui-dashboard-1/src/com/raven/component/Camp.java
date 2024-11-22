@@ -1,6 +1,10 @@
 package com.raven.component;
 
+<<<<<<< HEAD
+import com.raven.swing.NomeCliente;
+=======
 import com.raven.swing.SearchText01;
+>>>>>>> upstream/main
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -25,7 +29,11 @@ public class Camp extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
+        txtNomeCliente = new com.raven.swing.NomeCliente();
+=======
         txtNomeCliente = new com.raven.swing.SearchText01();
+>>>>>>> upstream/main
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -74,6 +82,10 @@ public class Camp extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private com.raven.swing.NomeCliente txtNomeCliente;
+=======
     private com.raven.swing.SearchText01 txtNomeCliente;
+>>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
 }

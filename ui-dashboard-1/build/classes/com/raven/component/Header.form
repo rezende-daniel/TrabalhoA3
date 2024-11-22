@@ -5,6 +5,12 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
+<<<<<<< HEAD
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+=======
+>>>>>>> upstream/main
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -45,7 +51,16 @@
         </Property>
       </Properties>
     </Component>
+<<<<<<< HEAD
+    <Component class="com.raven.swing.PesquiseAqui" name="searchText1">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="33" type="rgb"/>
+        </Property>
+      </Properties>
+=======
     <Component class="com.raven.swing.SearchText" name="searchText1">
+>>>>>>> upstream/main
     </Component>
   </SubComponents>
 </Form>

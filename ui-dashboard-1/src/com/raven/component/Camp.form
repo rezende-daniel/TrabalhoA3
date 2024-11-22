@@ -35,10 +35,18 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+<<<<<<< HEAD
+    <Component class="com.raven.swing.NomeCliente" name="txtNomeCliente">
+=======
     <Component class="com.raven.swing.SearchText01" name="txtNomeCliente">
+>>>>>>> upstream/main
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeClienteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
+<<<<<<< HEAD
 </Form>
+=======
+</Form>
+>>>>>>> upstream/main

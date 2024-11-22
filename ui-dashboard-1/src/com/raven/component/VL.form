@@ -35,10 +35,18 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+<<<<<<< HEAD
+    <Component class="com.raven.swing.VLEvento" name="searchText1111">
+=======
     <Component class="com.raven.swing.SearchText111" name="searchText1111">
+>>>>>>> upstream/main
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchText1111ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
+<<<<<<< HEAD
 </Form>
+=======
+</Form>
+>>>>>>> upstream/main

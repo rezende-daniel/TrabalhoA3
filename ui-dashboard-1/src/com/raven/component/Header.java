@@ -1,5 +1,9 @@
 package com.raven.component;
 
+<<<<<<< HEAD
+import java.awt.Color;
+=======
+>>>>>>> upstream/main
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -16,12 +20,24 @@ public class Header extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        searchText1 = new com.raven.swing.PesquiseAqui();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/search.png"))); // NOI18N
+
+        searchText1.setForeground(new java.awt.Color(51, 51, 51));
+
+=======
         searchText1 = new com.raven.swing.SearchText();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/search.png"))); // NOI18N
 
+>>>>>>> upstream/main
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -40,6 +56,22 @@ public class Header extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+        @Override
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
+        g2.setColor(Color.WHITE);
+        super.paintComponent(grphcs);
+    }
+    
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private com.raven.swing.PesquiseAqui searchText1;
+=======
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -54,5 +86,6 @@ public class Header extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private com.raven.swing.SearchText searchText1;
+>>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
 }

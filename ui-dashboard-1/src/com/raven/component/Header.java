@@ -1,9 +1,7 @@
 package com.raven.component;
 
-<<<<<<< HEAD
 import java.awt.Color;
-=======
->>>>>>> upstream/main
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -56,8 +54,8 @@ public class Header extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-        @Override
+
+    /*    @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -65,13 +63,11 @@ public class Header extends javax.swing.JPanel {
         g2.setColor(Color.WHITE);
         super.paintComponent(grphcs);
     }
-    
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+     */
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel jLabel1;
     private com.raven.swing.PesquiseAqui searchText1;
-=======
+
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -82,10 +78,11 @@ public class Header extends javax.swing.JPanel {
         g2.fillRect(getWidth() - 25, getHeight() - 25, getWidth(), getHeight());
         super.paintComponent(grphcs);
     }
-
+    /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private com.raven.swing.SearchText searchText1;
 >>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
+*/
 }

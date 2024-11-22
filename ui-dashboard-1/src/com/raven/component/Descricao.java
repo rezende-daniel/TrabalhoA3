@@ -57,7 +57,7 @@ public class Descricao extends javax.swing.JPanel {
             searchText11111.setText(""); // Limpa o texto do componente interno
         }
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
 <<<<<<< HEAD
     private com.raven.swing.DescEvento searchText11111;

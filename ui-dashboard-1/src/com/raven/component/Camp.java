@@ -1,10 +1,10 @@
 package com.raven.component;
 
-<<<<<<< HEAD
+
 import com.raven.swing.NomeCliente;
-=======
+
 import com.raven.swing.SearchText01;
->>>>>>> upstream/main
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -88,4 +88,6 @@ public class Camp extends javax.swing.JPanel {
     private com.raven.swing.SearchText01 txtNomeCliente;
 >>>>>>> upstream/main
     // End of variables declaration//GEN-END:variables
-}
+
+        }
+

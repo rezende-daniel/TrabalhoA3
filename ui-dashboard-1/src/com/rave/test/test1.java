@@ -8,6 +8,6 @@ package com.rave.test;
  *
  * @author nynav
  */
-public class t {
+public class test1 {
     
 }

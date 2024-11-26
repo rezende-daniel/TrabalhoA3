@@ -1,6 +1,6 @@
 package com.raven.component;
 
-import com.raven.swing.NomeCliente;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -25,33 +25,23 @@ public class Camp extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNomeCliente = new com.raven.swing.NomeCliente();
+        nomeCliente1 = new com.raven.swing.NomeCliente();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setOpaque(false);
 
-        txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeClienteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+            .addComponent(nomeCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+            .addComponent(nomeCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeClienteActionPerformed
 
     @Override
     protected void paintComponent(Graphics grphcs) {
@@ -62,18 +52,18 @@ public class Camp extends javax.swing.JPanel {
         super.paintComponent(grphcs);
     }
     public void clear() {
-        if (txtNomeCliente != null) {
-            txtNomeCliente.setText(""); // Limpa o texto do componente interno
+        if (nomeCliente1 != null) {
+            nomeCliente1.setText(""); // Limpa o texto do componente interno
         }
     }
      public String getText() {
             
-            this.texto=txtNomeCliente.getText(); 
+            this.texto=nomeCliente1.getText(); 
             return this.texto;
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.NomeCliente txtNomeCliente;
+    private com.raven.swing.NomeCliente nomeCliente1;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,20 +54,26 @@ public class Main extends javax.swing.JFrame {
         form2 = new Form_2();
         form3 = new Form_3();
         menu.initMoving(Main.this);
-        menu.addEventMenuSelected(new EventMenuSelected() {
-            @Override
-            public void selected(int index) {
-                if (index == 0) {
-                    setForm(home);
-                } else if (index == 1) {
-                    setForm(form1);
-                } else if (index == 2) {
-                    setForm(form2);
-                } else if (index == 3) {
-                    setForm(form3);
-                }
-            }
-        });
+        menu.addEventMenuSelected(index -> {
+            switch (index) {
+        case 0:
+            setForm(home);
+            break;
+        case 1:
+            setForm(form1);
+            break;
+        case 2:
+            setForm(form2);
+            break;
+        case 3:
+            setForm(form3);
+            break;
+        default:
+ 
+            System.out.println("Índice não reconhecido: " + index);
+            break;
+    }
+    });
         //  set when system open start with home form
         setForm(new Form_Home());
     }

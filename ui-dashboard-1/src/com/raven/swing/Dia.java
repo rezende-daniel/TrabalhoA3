@@ -9,10 +9,10 @@ import java.awt.RenderingHints;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class SearchText11111 extends JTextField {
-    private final String hint = "Local do Evento";
+public class Dia extends JTextField {
+    private final String hint = "Dia";
 
-    public SearchText11111() {
+    public Dia() {
         setBorder(new EmptyBorder(5, 5, 5, 5));
         setSelectionColor(new Color(220, 204, 182));
     }

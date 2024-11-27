@@ -54,20 +54,26 @@ public class Main extends javax.swing.JFrame {
         form2 = new Form_2();
         form3 = new Form_3();
         menu.initMoving(Main.this);
-        menu.addEventMenuSelected(new EventMenuSelected() {
-            @Override
-            public void selected(int index) {
-                if (index == 0) {
-                    setForm(home);
-                } else if (index == 1) {
-                    setForm(form1);
-                } else if (index == 2) {
-                    setForm(form2);
-                } else if (index == 3) {
-                    setForm(form3);
-                }
-            }
-        });
+        menu.addEventMenuSelected(index -> {
+            switch (index) {
+        case 0:
+            setForm(home);
+            break;
+        case 1:
+            setForm(form1);
+            break;
+        case 2:
+            setForm(form2);
+            break;
+        case 3:
+            setForm(form3);
+            break;
+        default:
+ 
+            System.out.println("Índice não reconhecido: " + index);
+            break;
+    }
+    });
         //  set when system open start with home form
         setForm(new Form_Home());
     }
@@ -91,9 +97,7 @@ public class Main extends javax.swing.JFrame {
         panelBorder1 = new com.raven.swing.PanelBorder();
         menu = new com.raven.component.Menu();
         mainPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         X = new javax.swing.JLabel();
-        person = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -104,14 +108,7 @@ public class Main extends javax.swing.JFrame {
         mainPanel.setOpaque(false);
         mainPanel.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Home");
-
         X.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/x.png"))); // NOI18N
-
-        person.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/Peson.png"))); // NOI18N
-        person.setText("jLabel2");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -125,11 +122,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(person, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(X)
                         .addGap(20, 20, 20))))
         );
@@ -137,16 +130,9 @@ public class Main extends javax.swing.JFrame {
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(person)))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(X)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
+                .addComponent(X)
+                .addGap(0, 0, 0)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -203,10 +189,8 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel X;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel mainPanel;
     private com.raven.component.Menu menu;
     private com.raven.swing.PanelBorder panelBorder1;
-    private javax.swing.JLabel person;
     // End of variables declaration//GEN-END:variables
 }

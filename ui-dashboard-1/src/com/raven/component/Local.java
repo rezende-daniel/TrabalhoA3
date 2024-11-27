@@ -22,7 +22,7 @@ public class Local extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        searchText111111 = new com.raven.swing.SearchText11111();
+        searchText111111 = new com.raven.swing.LocalEvento();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -71,6 +71,6 @@ public class Local extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.SearchText11111 searchText111111;
+    private com.raven.swing.LocalEvento searchText111111;
     // End of variables declaration//GEN-END:variables
 }

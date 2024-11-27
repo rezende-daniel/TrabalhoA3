@@ -4,13 +4,10 @@ import DAO.CartaoDAO;
 import DAO.EventoDAO;
 import DTO.EventoDTO;
 import DTO.CartaoDTO;
-import com.raven.component.Card;
 import com.raven.model.Model_Card;
-//import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -48,6 +45,7 @@ public class Form_Home extends javax.swing.JPanel {
         table = new com.raven.swing.Table();
         header1 = new com.raven.component.Header();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
@@ -69,7 +67,7 @@ public class Form_Home extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Eventos");
+        jLabel1.setText("Eventos do mês");
 
         spTable.setBorder(null);
 
@@ -116,13 +114,17 @@ public class Form_Home extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Eventos Próximos");
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Home");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,11 +141,17 @@ public class Form_Home extends javax.swing.JPanel {
                             .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(20, 20, 20))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,6 +169,7 @@ public class Form_Home extends javax.swing.JPanel {
     private com.raven.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private javax.swing.JScrollPane spTable;
@@ -244,7 +253,7 @@ public class Form_Home extends javax.swing.JPanel {
                    
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, erro + " card1 View");
+
         }
 
     }

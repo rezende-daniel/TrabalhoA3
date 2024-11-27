@@ -27,33 +27,112 @@ public class Form_1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        header5 = new com.raven.component.Header();
+        back1 = new com.raven.component.Back();
+        spTable3 = new javax.swing.JScrollPane();
+        table3 = new com.raven.swing.Table();
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(106, 106, 106));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Form 1");
+        setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Agenda");
+
+        header5.setForeground(new java.awt.Color(255, 255, 255));
+
+        spTable3.setBorder(null);
+
+        table3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "O.S", "Cliente", "Evento", "Local", "Dia"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        spTable3.setViewportView(table3);
+
+        javax.swing.GroupLayout back1Layout = new javax.swing.GroupLayout(back1);
+        back1.setLayout(back1Layout);
+        back1Layout.setHorizontalGroup(
+            back1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(back1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(spTable3, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+        back1Layout.setVerticalGroup(
+            back1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(back1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(spTable3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(header5, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addComponent(back1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(27, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(185, 185, 185))
+                .addComponent(jLabel7)
+                .addGap(47, 47, 47)
+                .addComponent(header5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(529, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(66, 66, 66)
+                    .addComponent(back1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(64, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.component.Back back1;
+    private com.raven.component.Header header1;
+    private com.raven.component.Header header2;
+    private com.raven.component.Header header3;
+    private com.raven.component.Header header5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
+    private com.raven.swing.PanelBorder panelBorder1;
+    private com.raven.swing.PanelBorder panelBorder2;
+    private com.raven.swing.PanelBorder panelBorder3;
+    private javax.swing.JScrollPane spTable;
+    private javax.swing.JScrollPane spTable1;
+    private javax.swing.JScrollPane spTable2;
+    private javax.swing.JScrollPane spTable3;
+    private com.raven.swing.Table table;
+    private com.raven.swing.Table table1;
+    private com.raven.swing.Table table2;
+    private com.raven.swing.Table table3;
     // End of variables declaration//GEN-END:variables
 }

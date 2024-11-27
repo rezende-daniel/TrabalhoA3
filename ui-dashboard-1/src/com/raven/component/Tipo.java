@@ -22,7 +22,7 @@ public class Tipo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        searchText11 = new com.raven.swing.SearchText1();
+        searchText11 = new com.raven.swing.TipoEvento();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +71,7 @@ public class Tipo extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.SearchText1 searchText11;
+    private com.raven.swing.TipoEvento searchText11;
     // End of variables declaration//GEN-END:variables
 
   

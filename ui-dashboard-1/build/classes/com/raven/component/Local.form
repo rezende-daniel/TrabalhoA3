@@ -35,7 +35,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="com.raven.swing.SearchText11111" name="searchText111111">
+    <Component class="com.raven.swing.LocalEvento" name="searchText111111">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchText111111ActionPerformed"/>
       </Events>

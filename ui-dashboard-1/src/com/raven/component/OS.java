@@ -22,7 +22,7 @@ public class OS extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        searchText111 = new com.raven.swing.SearchText11();
+        searchText111 = new com.raven.swing.NomeEvento();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -65,6 +65,6 @@ public class OS extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.SearchText11 searchText111;
+    private com.raven.swing.NomeEvento searchText111;
     // End of variables declaration//GEN-END:variables
 }

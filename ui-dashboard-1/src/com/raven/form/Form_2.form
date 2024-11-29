@@ -56,16 +56,16 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="Orcamento1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="data1" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="txtDiaEvento" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="mes1" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="txtMesEvento" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtValorEvento" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="searchText11" min="-2" pref="300" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="oS1" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="txtNomeEvento" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -92,15 +92,15 @@
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="searchText11" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="oS1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNomeEvento" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtValorEvento" min="-2" max="-2" attributes="0"/>
-                              <Component id="data1" min="-2" max="-2" attributes="0"/>
-                              <Component id="mes1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDiaEvento" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMesEvento" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -138,7 +138,7 @@
         </Component>
         <Component class="com.raven.component.Tipo" name="searchText11">
         </Component>
-        <Component class="com.raven.component.OS" name="oS1">
+        <Component class="com.raven.component.OS" name="txtNomeEvento">
         </Component>
         <Component class="com.raven.component.VL" name="txtValorEvento">
         </Component>
@@ -175,9 +175,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonClean1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.raven.component.Dia" name="data1">
+        <Component class="com.raven.component.Dia" name="txtDiaEvento">
         </Component>
-        <Component class="com.raven.component.Mes" name="mes1">
+        <Component class="com.raven.component.Mes" name="txtMesEvento">
         </Component>
         <Component class="javax.swing.JLabel" name="Orcamento1">
           <Properties>

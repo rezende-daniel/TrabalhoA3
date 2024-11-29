@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.raven.form.*;
-public class Header extends javax.swing.JPanel {
+import com.raven.swing.Form;
+public class HeaderHome extends javax.swing.JPanel {
 
-    public Header() {
+    public HeaderHome() {
         initComponents();
         setOpaque(false);
     }
@@ -76,7 +77,7 @@ public class Header extends javax.swing.JPanel {
 private void Pesquisar(String pesquisa) {
         try {
             EventoDAO objEventoDAO = new EventoDAO();
-            DefaultTableModel model = (DefaultTableModel) Form_1.table.getModel();
+            DefaultTableModel model = (DefaultTableModel) Form_Home.table.getModel();
             model.setNumRows(0);
             
             ArrayList<EventoDTO> lista = objEventoDAO.pesquisar(pesquisa);

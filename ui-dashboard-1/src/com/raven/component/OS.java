@@ -50,6 +50,7 @@ public class OS extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchText111ActionPerformed
 
+    private String texto;
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -67,4 +68,9 @@ public class OS extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.NomeEvento searchText111;
     // End of variables declaration//GEN-END:variables
+
+    public String getText() {
+        this.texto=searchText111.getText(); 
+            return this.texto;
+    }
 }

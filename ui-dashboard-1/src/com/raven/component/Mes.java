@@ -39,7 +39,7 @@ public class Mes extends javax.swing.JPanel {
             .addComponent(mes1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private String texto;
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -53,4 +53,9 @@ public class Mes extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.Mes mes1;
     // End of variables declaration//GEN-END:variables
+
+    public String getText() {
+        this.texto=mes1.getText(); 
+            return this.texto;
+    }
 }

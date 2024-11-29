@@ -2,6 +2,8 @@ package DAO;
 
 import DTO.EventoDTO;
 import java.sql.*;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -43,8 +45,10 @@ public class EventoDAO {
         }
     }
 
-    public ArrayList<EventoDTO> listarEvento() {
-        String sql = "select * from evento";
+    public ArrayList<EventoDTO> listarEventosDoMes() {
+        LocalDate currentDate = LocalDate.now();
+        int mesAtual =currentDate.getMonthValue();
+        String sql = "select * from evento where mes_evento="+mesAtual+";";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
@@ -64,11 +68,90 @@ public class EventoDAO {
 
             }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, erro + " funcionarioDAO pesquisar");
+            JOptionPane.showMessageDialog(null, erro + " Listar evento o mes pesquisar");
         }
         return lista;
     }
-    
+     public ArrayList<EventoDTO> listarEventos() {
+        
+        String sql = "select * from evento;";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                EventoDTO objEventoDTO = new EventoDTO();
+                objEventoDTO.setID(rs.getInt("ID"));
+                objEventoDTO.setDiaEvento(rs.getInt("dia_evento"));
+                objEventoDTO.setMesEvento(rs.getInt("mes_evento"));
+                objEventoDTO.setNomeEvento(rs.getString("nome_evento"));
+                objEventoDTO.setTipoEvento(rs.getString("tipo_evento"));
+                objEventoDTO.setCliente(rs.getString("cliente"));
+                objEventoDTO.setLocalEvento(rs.getString("local_evento"));
+
+                lista.add(objEventoDTO);
+
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro + " Listar evento pesquisar");
+        }
+        return lista;
+    }
+    public ArrayList<EventoDTO> pesquisar(String pesquisa) {
+        
+        String sql = "select * from evento where dia_evento like '%"+pesquisa+"%' or mes_evento like '%"+pesquisa+"%' or nome_evento like '%"+pesquisa+"%' or tipo_evento like '%"+pesquisa+"%' or cliente like '%"+pesquisa+"%' or local_evento like '%"+pesquisa+"%' ;";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                EventoDTO objEventoDTO = new EventoDTO();
+                //objEventoDTO.setID(rs.getInt("ID"));
+                objEventoDTO.setDiaEvento(rs.getInt("dia_evento"));
+                objEventoDTO.setMesEvento(rs.getInt("mes_evento"));
+                objEventoDTO.setNomeEvento(rs.getString("nome_evento"));
+                objEventoDTO.setTipoEvento(rs.getString("tipo_evento"));
+                objEventoDTO.setCliente(rs.getString("cliente"));
+                objEventoDTO.setLocalEvento(rs.getString("local_evento"));
+
+                lista.add(objEventoDTO);
+
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro + " Listar evento pesquisar");
+        }
+        return lista;
+    }
+        public ArrayList<EventoDTO> pesquisarEventosDoMes(String pesquisa) {
+        LocalDate currentDate = LocalDate.now();
+        int mesAtual =currentDate.getMonthValue();
+        
+        String sql = "select * from evento where (dia_evento like '%"+pesquisa+"%' or nome_evento like '%"+pesquisa+"%' or tipo_evento like '%"+pesquisa+"%'  or cliente like '%"+pesquisa+"%' or local_evento like '%"+pesquisa+"%') and mes_evento="+mesAtual+";";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                EventoDTO objEventoDTO = new EventoDTO();
+                //objEventoDTO.setID(rs.getInt("ID"));
+                objEventoDTO.setDiaEvento(rs.getInt("dia_evento"));
+                objEventoDTO.setMesEvento(rs.getInt("mes_evento"));
+                objEventoDTO.setNomeEvento(rs.getString("nome_evento"));
+                objEventoDTO.setTipoEvento(rs.getString("tipo_evento"));
+                objEventoDTO.setCliente(rs.getString("cliente"));
+                objEventoDTO.setLocalEvento(rs.getString("local_evento"));
+
+                lista.add(objEventoDTO);
+
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro + " Listar evento pesquisar");
+        }
+        return lista;
+    }
 
 }
 

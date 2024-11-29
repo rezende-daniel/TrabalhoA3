@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-
+import com.*;
 public class Form_Home extends javax.swing.JPanel {
 
     public Form_Home() {
@@ -20,7 +20,7 @@ public class Form_Home extends javax.swing.JPanel {
         Card1();
         Card1();
         Card1();
-        ListarEventos();
+        ListarEventosDoMes();
         //  add row table
         spTable.setVerticalScrollBar(new ScrollBar());
         spTable.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -32,8 +32,7 @@ public class Form_Home extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() {//GEN-BEGIN:initComponents
 
         panel = new javax.swing.JLayeredPane();
         card1 = new com.raven.component.Card();
@@ -43,7 +42,7 @@ public class Form_Home extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         spTable = new javax.swing.JScrollPane();
         table = new com.raven.swing.Table();
-        header1 = new com.raven.component.Header();
+        headerHome1 = new com.raven.component.HeaderHome();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -76,11 +75,11 @@ public class Form_Home extends javax.swing.JPanel {
 
             },
             new String [] {
-                "O.S", "Cliente", "Evento", "Local", "Dia"
+                "Cliente", "Evento", "Local", "Dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -89,30 +88,36 @@ public class Form_Home extends javax.swing.JPanel {
         });
         spTable.setViewportView(table);
 
+        headerHome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                headerHome1KeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(headerHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(256, 256, 256))
                     .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(14, 14, 14)
                         .addComponent(jLabel1))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(headerHome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
@@ -159,34 +164,39 @@ public class Form_Home extends javax.swing.JPanel {
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }//GEN-END:initComponents
+
+    private void headerHome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_headerHome1KeyReleased
+        String pesquisa =headerHome1.getText();
+        PesquisarEventoDoMes(pesquisa);
+    }//GEN-LAST:event_headerHome1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Card card1;
     private com.raven.component.Card card2;
     private com.raven.component.Card card3;
-    private com.raven.component.Header header1;
+    public static com.raven.component.HeaderHome headerHome1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private javax.swing.JScrollPane spTable;
-    private com.raven.swing.Table table;
+    public static com.raven.swing.Table table;
     // End of variables declaration//GEN-END:variables
- private void ListarEventos() {
+ private void ListarEventosDoMes() {
         try {
             EventoDAO objEventoDAO = new EventoDAO();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setNumRows(0);
             
-            ArrayList<EventoDTO> lista = objEventoDAO.listarEvento();
+            ArrayList<EventoDTO> lista = objEventoDAO.listarEventosDoMes();
             
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
                     
-                    lista.get(num).getID(),
+                    //lista.get(num).getID(),
                     lista.get(num).getCliente(),
                     lista.get(num).getNomeEvento(),
                     lista.get(num).getLocalEvento(),
@@ -195,7 +205,7 @@ public class Form_Home extends javax.swing.JPanel {
             }
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, erro + "listarEventos View");
+            JOptionPane.showMessageDialog(null, erro + "listar Eventos do mes View");
         }
     }
 
@@ -257,5 +267,27 @@ public class Form_Home extends javax.swing.JPanel {
         }
 
     }
+private void PesquisarEventoDoMes(String pesquisa) {
+        try {
+            EventoDAO objEventoDAO = new EventoDAO();
+            DefaultTableModel model = (DefaultTableModel) Form_Home.table.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<EventoDTO> lista = objEventoDAO.pesquisarEventosDoMes(pesquisa);
+            
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[]{
+                    
+                    //lista.get(num).getID(),
+                    lista.get(num).getCliente(),
+                    lista.get(num).getNomeEvento(),
+                    lista.get(num).getLocalEvento(),
+                    lista.get(num).getDiaEvento(),
+                    lista.get(num).getMesEvento(),});
+            }
 
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro + "Pesquiasr Eventos do mes View");
+        }
+    }
 }

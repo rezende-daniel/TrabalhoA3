@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -25,7 +26,9 @@ public class CartaoDAO {
     ArrayList<CartaoDTO> cartoes = new ArrayList<>();
 
     public ArrayList<CartaoDTO> card() {
-        String sql = "select cliente,tipo_evento,dia_evento,local_evento from evento limit 3;";
+        LocalDate currentDate = LocalDate.now();
+        int mesAtual =currentDate.getMonthValue();
+        String sql = "select cliente,tipo_evento,dia_evento,local_evento from evento where mes_evento="+mesAtual+"  limit 3;";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareCall(sql);

@@ -14,21 +14,20 @@ public class Form_2 extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() {//GEN-BEGIN:initComponents
 
         Fundo = new com.raven.component.Back();
         txtNomeCliente = new com.raven.component.Camp();
         Orcamento = new javax.swing.JLabel();
         searchText11 = new com.raven.component.Tipo();
-        oS1 = new com.raven.component.OS();
+        txtNomeEvento = new com.raven.component.OS();
         txtValorEvento = new com.raven.component.VL();
         txtLocalEvento = new com.raven.component.Local();
         txtDescricao = new com.raven.component.Descricao();
         button1 = new com.raven.swing.ButtonAdd();
         buttonClean1 = new com.raven.swing.ButtonClean();
-        data1 = new com.raven.component.Dia();
-        mes1 = new com.raven.component.Mes();
+        txtDiaEvento = new com.raven.component.Dia();
+        txtMesEvento = new com.raven.component.Mes();
         Orcamento1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
@@ -74,15 +73,15 @@ public class Form_2 extends javax.swing.JPanel {
                         .addGroup(FundoLayout.createSequentialGroup()
                             .addComponent(Orcamento1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDiaEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(mes1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMesEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtValorEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(FundoLayout.createSequentialGroup()
                             .addComponent(searchText11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(oS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FundoLayout.createSequentialGroup()
                             .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,14 +101,14 @@ public class Form_2 extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchText11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNomeEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtValorEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtDiaEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMesEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(Orcamento1)))
@@ -140,24 +139,24 @@ public class Form_2 extends javax.swing.JPanel {
                 .addComponent(Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(194, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
         String nomeEvento, tipoEvento, localEvento, cliente;
-        //Integer diaEvento, mesEvento;
-        //nomeEvento = txtNomeEvento.getText();
+        Integer diaEvento, mesEvento;
+        nomeEvento = txtNomeEvento.getText();
         tipoEvento = searchText11.getText();
-        //diaEvento = Integer.valueOf(txtDiaEvento.getText());
-        //mesEvento = Integer.valueOf(txtMesEvento.getText());
+        diaEvento = Integer.valueOf(txtDiaEvento.getText());
+        mesEvento = Integer.valueOf(txtMesEvento.getText());
         localEvento = txtLocalEvento.getText();
         cliente = txtNomeCliente.getText();
 
         EventoDTO objEventoDTO = new EventoDTO();
-        //objEventoDTO.setNomeEvento(nomeEvento);
+        objEventoDTO.setNomeEvento(nomeEvento);
         objEventoDTO.setTipoEvento(tipoEvento);
-        //objEventoDTO.setDiaEvento(diaEvento);
-        //objEventoDTO.setMesEvento(mesEvento);
+        objEventoDTO.setDiaEvento(diaEvento);
+        objEventoDTO.setMesEvento(mesEvento);
         objEventoDTO.setCliente(cliente);
         objEventoDTO.setLocalEvento(localEvento);
 
@@ -186,13 +185,13 @@ public class Form_2 extends javax.swing.JPanel {
     private javax.swing.JLabel Orcamento1;
     private com.raven.swing.ButtonAdd button1;
     private com.raven.swing.ButtonClean buttonClean1;
-    private com.raven.component.Dia data1;
-    private com.raven.component.Mes mes1;
-    private com.raven.component.OS oS1;
     private com.raven.component.Tipo searchText11;
     private com.raven.component.Descricao txtDescricao;
+    private com.raven.component.Dia txtDiaEvento;
     private com.raven.component.Local txtLocalEvento;
+    private com.raven.component.Mes txtMesEvento;
     private com.raven.component.Camp txtNomeCliente;
+    private com.raven.component.OS txtNomeEvento;
     private com.raven.component.VL txtValorEvento;
     // End of variables declaration//GEN-END:variables
 }

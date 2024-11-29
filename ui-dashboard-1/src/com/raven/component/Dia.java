@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Dia extends javax.swing.JPanel {
     
-
+    
     public Dia() {
         initComponents();
         setOpaque(false);
@@ -49,7 +49,7 @@ public class Dia extends javax.swing.JPanel {
     private void data1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_data1ActionPerformed
-
+    private String texto;
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -63,4 +63,9 @@ public class Dia extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.Dia data1;
     // End of variables declaration//GEN-END:variables
+
+    public String getText() {
+        this.texto=data1.getText(); 
+            return this.texto;
+    }
 }

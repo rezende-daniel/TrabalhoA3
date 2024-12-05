@@ -68,4 +68,9 @@ public class Dia extends javax.swing.JPanel {
         this.texto=data1.getText(); 
             return this.texto;
     }
+    public void clear() {
+        if (data1 != null) {
+            data1.setText(""); // Limpa o texto do componente interno
+        }
+    }
 }

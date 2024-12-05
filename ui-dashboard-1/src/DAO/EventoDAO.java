@@ -22,10 +22,9 @@ public class EventoDAO {
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<EventoDTO> lista = new ArrayList<>();
-     
 
     public void cadastrarEvento(EventoDTO objEventoDTO) {
-        String sql = "insert into evento (dia_evento,mes_evento,nome_evento,tipo_evento,cliente,local_evento) values (?,?,?,?,?,?)";
+        String sql = "insert into evento (dia_evento,mes_evento,nome_evento,tipo_evento,cliente,local_evento,descricao) values (?,?,?,?,?,?,?)";
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -36,6 +35,7 @@ public class EventoDAO {
             pstm.setString(4, objEventoDTO.getTipoEvento());
             pstm.setString(5, objEventoDTO.getCliente());
             pstm.setString(6, objEventoDTO.getLocalEvento());
+            pstm.setString(7, objEventoDTO.getDescricao());
 
             pstm.execute();
             pstm.close();
@@ -47,8 +47,8 @@ public class EventoDAO {
 
     public ArrayList<EventoDTO> listarEventosDoMes() {
         LocalDate currentDate = LocalDate.now();
-        int mesAtual =currentDate.getMonthValue();
-        String sql = "select * from evento where mes_evento="+mesAtual+";";
+        int mesAtual = currentDate.getMonthValue();
+        String sql = "select * from evento where mes_evento=" + mesAtual + " order by dia_evento ASC;";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
@@ -72,8 +72,9 @@ public class EventoDAO {
         }
         return lista;
     }
-     public ArrayList<EventoDTO> listarEventos() {
-        
+
+    public ArrayList<EventoDTO> listarEventos() {
+
         String sql = "select * from evento;";
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -98,9 +99,10 @@ public class EventoDAO {
         }
         return lista;
     }
+
     public ArrayList<EventoDTO> pesquisar(String pesquisa) {
-        
-        String sql = "select * from evento where dia_evento like '%"+pesquisa+"%' or mes_evento like '%"+pesquisa+"%' or nome_evento like '%"+pesquisa+"%' or tipo_evento like '%"+pesquisa+"%' or cliente like '%"+pesquisa+"%' or local_evento like '%"+pesquisa+"%' ;";
+
+        String sql = "select * from evento where dia_evento like '%" + pesquisa + "%' or mes_evento like '%" + pesquisa + "%' or nome_evento like '%" + pesquisa + "%' or tipo_evento like '%" + pesquisa + "%' or cliente like '%" + pesquisa + "%' or local_evento like '%" + pesquisa + "%' ;";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
@@ -124,11 +126,12 @@ public class EventoDAO {
         }
         return lista;
     }
-        public ArrayList<EventoDTO> pesquisarEventosDoMes(String pesquisa) {
+
+    public ArrayList<EventoDTO> pesquisarEventosDoMes(String pesquisa) {
         LocalDate currentDate = LocalDate.now();
-        int mesAtual =currentDate.getMonthValue();
-        
-        String sql = "select * from evento where (dia_evento like '%"+pesquisa+"%' or nome_evento like '%"+pesquisa+"%' or tipo_evento like '%"+pesquisa+"%'  or cliente like '%"+pesquisa+"%' or local_evento like '%"+pesquisa+"%') and mes_evento="+mesAtual+";";
+        int mesAtual = currentDate.getMonthValue();
+
+        String sql = "select * from evento where (dia_evento like '%" + pesquisa + "%' or nome_evento like '%" + pesquisa + "%' or tipo_evento like '%" + pesquisa + "%'  or cliente like '%" + pesquisa + "%' or local_evento like '%" + pesquisa + "%') and mes_evento=" + mesAtual + ";";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
@@ -145,6 +148,36 @@ public class EventoDAO {
                 objEventoDTO.setLocalEvento(rs.getString("local_evento"));
 
                 lista.add(objEventoDTO);
+
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro + " Listar evento pesquisar");
+        }
+        return lista;
+    }
+
+    public ArrayList<EventoDTO> abrirEvento(String cliente, String evento, String local, String dia) {
+        LocalDate currentDate = LocalDate.now();
+        int mesAtual = currentDate.getMonthValue();
+
+        String sql = "select * from evento where dia_evento= '" + dia + "' and nome_evento= '" + evento + "' and cliente=  '" + cliente + "' and local_evento= '" + local + "' and mes_evento=" + mesAtual + ";";
+        //JOptionPane.showMessageDialog(null, sql);
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                EventoDTO objEventosDTO = new EventoDTO();
+                objEventosDTO.setCliente(rs.getString("Cliente"));
+                objEventosDTO.setDiaEvento(rs.getInt("dia_evento"));
+                objEventosDTO.setMesEvento(rs.getInt("mes_evento"));
+                objEventosDTO.setTipoEvento(rs.getString("tipo_evento"));
+                objEventosDTO.setLocalEvento(rs.getString("local_evento"));
+                objEventosDTO.setDescricao(rs.getString("descricao"));
+                objEventosDTO.setID(rs.getInt("id"));
+                objEventosDTO.setValor(rs.getInt("valor"));
+                lista.add(objEventosDTO);
 
             }
         } catch (SQLException erro) {
@@ -154,5 +187,3 @@ public class EventoDAO {
     }
 
 }
-
-

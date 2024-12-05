@@ -11,16 +11,26 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import com.raven.main.Main;
+
+import java.awt.event.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
-import com.*;
+
 public class Form_Home extends javax.swing.JPanel {
 
+    private static Form_Home instance;
+
     public Form_Home() {
+        instance = this;
         initComponents();
         Card1();
         Card1();
         Card1();
         ListarEventosDoMes();
+
         //  add row table
         spTable.setVerticalScrollBar(new ScrollBar());
         spTable.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -78,12 +88,30 @@ public class Form_Home extends javax.swing.JPanel {
                 "Cliente", "Evento", "Local", "Dia"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
 
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tableMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tableMouseReleased(evt);
             }
         });
         spTable.setViewportView(table);
@@ -91,6 +119,9 @@ public class Form_Home extends javax.swing.JPanel {
         headerHome1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 headerHome1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                headerHome1KeyTyped(evt);
             }
         });
 
@@ -104,8 +135,7 @@ public class Form_Home extends javax.swing.JPanel {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(headerHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(256, 256, 256))
+                        .addComponent(headerHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -167,9 +197,31 @@ public class Form_Home extends javax.swing.JPanel {
     }//GEN-END:initComponents
 
     private void headerHome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_headerHome1KeyReleased
-        String pesquisa =headerHome1.getText();
-        PesquisarEventoDoMes(pesquisa);
+        //String pesquisa = headerHome1.getText();
+        //PesquisarEventoDoMes(pesquisa);
     }//GEN-LAST:event_headerHome1KeyReleased
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+
+
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void tableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMousePressed
+
+    }//GEN-LAST:event_tableMousePressed
+
+    private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
+        
+        
+        abrirEvento();
+
+    }//GEN-LAST:event_tableMouseReleased
+
+    private void headerHome1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_headerHome1KeyTyped
+        // String pesquisa = headerHome1.getText();
+        //PesquisarEventoDoMes(pesquisa);
+// TODO add your handling code here:
+    }//GEN-LAST:event_headerHome1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -183,19 +235,18 @@ public class Form_Home extends javax.swing.JPanel {
     private javax.swing.JLayeredPane panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private javax.swing.JScrollPane spTable;
-    public static com.raven.swing.Table table;
+    public com.raven.swing.Table table;
     // End of variables declaration//GEN-END:variables
  private void ListarEventosDoMes() {
         try {
             EventoDAO objEventoDAO = new EventoDAO();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setNumRows(0);
-            
+
             ArrayList<EventoDTO> lista = objEventoDAO.listarEventosDoMes();
-            
+
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
-                    
                     //lista.get(num).getID(),
                     lista.get(num).getCliente(),
                     lista.get(num).getNomeEvento(),
@@ -212,72 +263,51 @@ public class Form_Home extends javax.swing.JPanel {
     private void Card1() {
         try {
             CartaoDAO objCartaoDAO = new CartaoDAO();
-            
 
             ArrayList<CartaoDTO> lista = objCartaoDAO.card();
 
-                    
-                
-                    String tipoEvento = lista.get(0).getTipoEvento();
-                    String cliente = lista.get(0).getCliente();
-                    //String nomeEvento = lista.get(1).getNomeEvento();
-                    String localEvento = lista.get(0).getLocalEvento();
-                    String diaEvento =String.valueOf( lista.get(0).getDiaEvento());
-                    String notas =tipoEvento+cliente+localEvento+diaEvento;
-                  
-                   /*
-                    lista.get(0).getCliente();
-                    lista.get(0).getTipoEvento();
-                    lista.get(0).getLocalEvento();
-                    lista.get(0).getDiaEvento();
-                   */
-                   card1.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));
-                    tipoEvento = lista.get(1).getTipoEvento();
-                     cliente = lista.get(1).getCliente();
-                    //String nomeEvento = lista.get(1).getNomeEvento();
-                     localEvento = lista.get(1).getLocalEvento();
-                     diaEvento =String.valueOf( lista.get(1).getDiaEvento());
-                     notas =tipoEvento+cliente+localEvento+diaEvento;
-                  
-                   /*
-                    lista.get(0).getCliente();
-                    lista.get(0).getTipoEvento();
-                    lista.get(0).getLocalEvento();
-                    lista.get(0).getDiaEvento();
-                   */
-                   card2.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));tipoEvento = lista.get(1).getTipoEvento();
-                     cliente = lista.get(2).getCliente();
-                    //String nomeEvento = lista.get(1).getNomeEvento();
-                     localEvento = lista.get(2).getLocalEvento();
-                     diaEvento =String.valueOf( lista.get(2).getDiaEvento());
-                     notas =tipoEvento+cliente+localEvento+diaEvento;
-                  
-                   /*
-                    lista.get(0).getCliente();
-                    lista.get(0).getTipoEvento();
-                    lista.get(0).getLocalEvento();
-                    lista.get(0).getDiaEvento();
-                   */
-                   card3.setData(new Model_Card(diaEvento, cliente,tipoEvento ,localEvento));
-                   
-                   
+            String tipoEvento = lista.get(0).getTipoEvento();
+            String cliente = lista.get(0).getCliente();
+            //String nomeEvento = lista.get(1).getNomeEvento();
+            String localEvento = lista.get(0).getLocalEvento();
+            String diaEvento = String.valueOf(lista.get(0).getDiaEvento());
+            String notas = tipoEvento + cliente + localEvento + diaEvento;
+
+            card1.setData(new Model_Card(diaEvento, cliente, tipoEvento, localEvento));
+            tipoEvento = lista.get(1).getTipoEvento();
+            cliente = lista.get(1).getCliente();
+            //String nomeEvento = lista.get(1).getNomeEvento();
+            localEvento = lista.get(1).getLocalEvento();
+            diaEvento = String.valueOf(lista.get(1).getDiaEvento());
+            notas = tipoEvento + cliente + localEvento + diaEvento;
+
+            card2.setData(new Model_Card(diaEvento, cliente, tipoEvento, localEvento));
+            tipoEvento = lista.get(1).getTipoEvento();
+            cliente = lista.get(2).getCliente();
+            //String nomeEvento = lista.get(1).getNomeEvento();
+            localEvento = lista.get(2).getLocalEvento();
+            diaEvento = String.valueOf(lista.get(2).getDiaEvento());
+            notas = tipoEvento + cliente + localEvento + diaEvento;
+
+            card3.setData(new Model_Card(diaEvento, cliente, tipoEvento, localEvento));
 
         } catch (Exception erro) {
 
         }
 
     }
-private void PesquisarEventoDoMes(String pesquisa) {
+
+    /*public void PesquisarEventoDoMes(String pesquisa) {
         try {
             EventoDAO objEventoDAO = new EventoDAO();
-            DefaultTableModel model = (DefaultTableModel) Form_Home.table.getModel();
+            //Form_Home objHome = Form_Home.getInstance();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setNumRows(0);
-            
+
             ArrayList<EventoDTO> lista = objEventoDAO.pesquisarEventosDoMes(pesquisa);
-            
+            JOptionPane.showMessageDialog(null, lista);
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
-                    
                     //lista.get(num).getID(),
                     lista.get(num).getCliente(),
                     lista.get(num).getNomeEvento(),
@@ -290,4 +320,36 @@ private void PesquisarEventoDoMes(String pesquisa) {
             JOptionPane.showMessageDialog(null, erro + "Pesquiasr Eventos do mes View");
         }
     }
+*/
+    private void abrirEvento() {
+        Main objMain = Main.getInstance();
+
+        int linha = table.getSelectedRow();
+        String cliente = String.valueOf(table.getModel().getValueAt(linha, 0));
+        String evento = String.valueOf(table.getModel().getValueAt(linha, 1));
+        String local = String.valueOf(table.getModel().getValueAt(linha, 2));
+        String dia = String.valueOf(table.getModel().getValueAt(linha, 3));
+
+        try {
+            objMain.tela3();
+            EventoDAO objEventoDAO = new EventoDAO();
+            ArrayList<EventoDTO> lista = objEventoDAO.abrirEvento(cliente, evento, local, dia);
+            Form_3.txtNomeCliente.setText(lista.get(0).getCliente());
+            Form_3.txtNomeEvento.setText(lista.get(0).getNomeEvento());
+            Form_3.txtLocal.setText(lista.get(0).getLocalEvento());
+            Form_3.TxtDescricao.setText(lista.get(0).getDescricao());
+            Form_3.txtOS.setText(String.valueOf(lista.get(0).getID()));
+            Form_3.txtData.setText(String.valueOf(lista.get(0).getDiaEvento() + "/" + lista.get(0).getMesEvento()));
+            Form_3.txtValor.setText(String.valueOf(lista.get(0).getValor()));
+
+        } catch (Exception e) {
+        }
+    }
+
+    public static Form_Home getInstance() {
+        return instance;
+    }
+
+   
+
 }

@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import javax.swing.border.EmptyBorder;
 
 public class Descricao extends javax.swing.JPanel {
-    
+    private String texto;
 
     public Descricao() {
         initComponents();
@@ -53,6 +53,13 @@ public class Descricao extends javax.swing.JPanel {
             searchText11111.setText(""); // Limpa o texto do componente interno
         }
     }
+     public String getText() {
+            
+            this.texto=searchText11111.getText(); 
+            return this.texto;
+        
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.DescEvento searchText11111;

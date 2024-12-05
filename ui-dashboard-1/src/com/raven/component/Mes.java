@@ -58,4 +58,9 @@ public class Mes extends javax.swing.JPanel {
         this.texto=mes1.getText(); 
             return this.texto;
     }
+    public void clear() {
+        if (mes1 != null) {
+            mes1.setText(""); // Limpa o texto do componente interno
+        }
+    }
 }

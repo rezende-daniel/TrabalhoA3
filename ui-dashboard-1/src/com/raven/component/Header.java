@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.raven.form.*;
+
 public class Header extends javax.swing.JPanel {
 
     public Header() {
@@ -54,11 +55,13 @@ public class Header extends javax.swing.JPanel {
     }//GEN-END:initComponents
 
     private void searchText1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchText1KeyReleased
-        String pesquisa =searchText1.getText() ;
+
+        String pesquisa = searchText1.getText();
+
         Pesquisar(pesquisa);        // TODO add your handling code here:
     }//GEN-LAST:event_searchText1KeyReleased
 
-        @Override
+    @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -66,7 +69,6 @@ public class Header extends javax.swing.JPanel {
         g2.setColor(Color.WHITE);
         super.paintComponent(grphcs);
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -75,15 +77,16 @@ public class Header extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 private void Pesquisar(String pesquisa) {
         try {
+
             EventoDAO objEventoDAO = new EventoDAO();
-            DefaultTableModel model = (DefaultTableModel) Form_1.table.getModel();
+            Form_1 objForm1 = Form_1.getInstance();
+            DefaultTableModel model = (DefaultTableModel) objForm1.table1.getModel();
             model.setNumRows(0);
-            
+
             ArrayList<EventoDTO> lista = objEventoDAO.pesquisar(pesquisa);
             
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
-                    
                     //lista.get(num).getID(),
                     lista.get(num).getCliente(),
                     lista.get(num).getNomeEvento(),
@@ -93,13 +96,14 @@ private void Pesquisar(String pesquisa) {
             }
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, erro + "listar Eventos do mes View");
+            JOptionPane.showMessageDialog(null, erro + "  listar Eventos do ano View");
         }
     }
     private String texto;
+
     public String getText() {
-        this.texto=Form_Home.headerHome1.getText(); 
-            return this.texto;
-    
-}
+        this.texto = Form_1.headerPesquisaAno.getText();
+        return this.texto;
+
+    }
 }

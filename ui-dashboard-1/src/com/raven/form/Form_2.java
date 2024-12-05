@@ -5,6 +5,11 @@ import DTO.EventoDTO;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 public class Form_2 extends javax.swing.JPanel {
 
@@ -143,7 +148,7 @@ public class Form_2 extends javax.swing.JPanel {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        String nomeEvento, tipoEvento, localEvento, cliente;
+        String nomeEvento, tipoEvento, localEvento, cliente,descricao,validacao;
         Integer diaEvento, mesEvento;
         nomeEvento = txtNomeEvento.getText();
         tipoEvento = searchText11.getText();
@@ -151,7 +156,9 @@ public class Form_2 extends javax.swing.JPanel {
         mesEvento = Integer.valueOf(txtMesEvento.getText());
         localEvento = txtLocalEvento.getText();
         cliente = txtNomeCliente.getText();
-
+        descricao = txtDescricao.getText();
+        validacao=(txtDiaEvento.getText()+"/"+txtMesEvento.getText());
+        if (isDataValida(validacao)){
         EventoDTO objEventoDTO = new EventoDTO();
         objEventoDTO.setNomeEvento(nomeEvento);
         objEventoDTO.setTipoEvento(tipoEvento);
@@ -159,13 +166,28 @@ public class Form_2 extends javax.swing.JPanel {
         objEventoDTO.setMesEvento(mesEvento);
         objEventoDTO.setCliente(cliente);
         objEventoDTO.setLocalEvento(localEvento);
-
+        objEventoDTO.setDescricao(descricao);
         EventoDAO objEventoDAO = new EventoDAO();
-        objEventoDAO.cadastrarEvento(objEventoDTO);
+        objEventoDAO.cadastrarEvento(objEventoDTO);}
+        else {
+            JOptionPane.showConfirmDialog(null, "Insira um valor valido para a data");
+        
+        }
+        
+
+        
     }//GEN-LAST:event_button1ActionPerformed
 
     private void buttonClean1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClean1ActionPerformed
-        // TODO add your handling code here:
+      txtDescricao.clear();
+      txtDiaEvento.clear();
+      txtLocalEvento.clear();
+      txtMesEvento.clear();
+      txtNomeCliente.clear();
+      txtNomeEvento.clear();
+      txtValorEvento.clear();
+              
+// TODO add your handling code here:
     }//GEN-LAST:event_buttonClean1ActionPerformed
 
     @Override
@@ -194,4 +216,15 @@ public class Form_2 extends javax.swing.JPanel {
     private com.raven.component.OS txtNomeEvento;
     private com.raven.component.VL txtValorEvento;
     // End of variables declaration//GEN-END:variables
+ public static boolean isDataValida(String diaMes) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM");
+        formato.setLenient(false);
+        try {
+            Date dataFormatada = formato.parse(diaMes);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
 }

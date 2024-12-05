@@ -27,8 +27,9 @@ public class CartaoDAO {
 
     public ArrayList<CartaoDTO> card() {
         LocalDate currentDate = LocalDate.now();
+        int diaAtual =currentDate.getDayOfMonth();
         int mesAtual =currentDate.getMonthValue();
-        String sql = "select cliente,tipo_evento,dia_evento,local_evento from evento where mes_evento="+mesAtual+"  limit 3;";
+        String sql = "select cliente,tipo_evento,dia_evento,local_evento from evento where mes_evento="+mesAtual+" and dia_evento> "+diaAtual+" order by dia_evento ASC  limit 3;";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareCall(sql);

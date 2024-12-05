@@ -19,6 +19,8 @@ public class EventoDTO {
     private Integer ID;
     private String localEvento;
     private String cliente;
+    private String descricao;
+    private Integer valor;
 
     /**
      * @return the nomeEvento
@@ -116,6 +118,34 @@ public class EventoDTO {
      */
     public void setCliente(String cliente) {
         this.cliente = cliente;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    /**
+     * @return the valor
+     */
+    public Integer getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(Integer valor) {
+        this.valor = valor;
     }
 
 }
